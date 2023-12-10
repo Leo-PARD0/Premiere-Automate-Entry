@@ -1,0 +1,1 @@
+Uma tentativa de automatizar entrada no adobe premiere
