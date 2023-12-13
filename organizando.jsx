@@ -1,6 +1,7 @@
 #target premierepro
 
 (function() {
+    
     var project = app.project;
     // Verifique se há pelo menos um projeto aberto
     if (!project) {
@@ -46,12 +47,11 @@
         return a.order - b.order;
     });
 
-      
 
-    // Adiciona os clipes na timeline na ordem correta
+
+    // Adiciona os clipes na timeline no final da sequência
     for (var j = 0; j < clipsToSort.length; j++) {
         var sortedClip = clipsToSort[j].clip;
-        sequence.videoTracks[0].overwriteClip(sortedClip, sequence.getPlayerPosition());
-        sequence.setPlayerPosition(sequence.getPlayerPosition() + sortedClip.duration.ticks);
+        sequence.videoTracks[0].insertClip(sortedClip, sequence.end);
     }
 })();
